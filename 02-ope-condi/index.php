@@ -39,6 +39,12 @@ $number3 = 5;
 
     echo ($date === 7) ? 'On a TRE' : 'On a PHP';
     ?>
+
+    <h2>Les erreurs</h2>
+    <?php
+    echo $a; // warning
+    // echo 10/0 //Fatal error
+    ?>
 </body>
 
 </html>
