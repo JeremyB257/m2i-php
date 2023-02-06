@@ -46,6 +46,7 @@ $number3 = 5;
     // echo 10/0 //Fatal error
     ?>
     <a href="./major.php">majeur</a>
+    <a href="./operation.php">operation</a>
 </body>
 
 </html>
