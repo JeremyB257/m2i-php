@@ -42,9 +42,10 @@ $number3 = 5;
 
     <h2>Les erreurs</h2>
     <?php
-    echo $a; // warning
+    //echo $a; // warning
     // echo 10/0 //Fatal error
     ?>
+    <a href="./major.php">majeur</a>
 </body>
 
 </html>
