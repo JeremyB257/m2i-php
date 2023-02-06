@@ -19,7 +19,7 @@ $city = 'Lille';
 <body>
     <h1>Introduction au php</h1>
     <p><?= 'hello PHP!' ?></p>
-    <p><?= 'j\'ai ' . $age . ' ans et je vis à ' . $city;  ?></p>
+    <p><?= 'j\'ai ' . $age . ' ans et je vis à ' . $city . '.'  ?></p>
     <p><?= "la variable \$price contient $price. On peut aussi faire {$price}€."  ?></p>
 </body>
 
