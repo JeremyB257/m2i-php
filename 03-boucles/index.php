@@ -59,7 +59,7 @@
     for ($e = 0; $e <= 10; $e++) {
         echo '<p>';
         for ($i = 0; $i <= $e; $i++) {
-            echo '<span>😀</span>';
+            echo '<span>😀 &nbsp;&nbsp;</span>';
         }
         echo '</p>';
     }
