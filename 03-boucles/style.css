@@ -25,5 +25,8 @@
     text-align: center;
 }
 .diag {
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(13, 0, 255, 0.15);
+}
+.paire {
+    background-color: rgb(255 0 0 / 15%);
 }

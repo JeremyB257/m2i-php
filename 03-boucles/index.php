@@ -93,12 +93,14 @@
         </thead>
         <tbody>
             <?php
+
             for ($e = 0; $e <= 10; $e++) {
                 echo '<tr>';
                 echo '<th>' . $e . '</th>';
 
                 for ($i = 0; $i <= 10; $i++) {
                     if ($e === $i)  echo '<td class="diag"> ' . ($e * $i) . ' </td>';
+                    else if ($i % 2 === 0) echo '<td class="paire"> ' . ($e * $i) . ' </td>';
                     else echo '<td> ' . ($e * $i) . ' </td>';
                 }
 
