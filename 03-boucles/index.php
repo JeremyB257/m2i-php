@@ -64,6 +64,8 @@
         echo '</p>';
     }
     ?>
+
+    <h2>Multiplication</h2>
     <div class="flex evenly">
         <?php
         for ($e = 1; $e <= 10; $e++) {
@@ -76,6 +78,36 @@
 
         ?>
     </div>
+
+
+    <h2>Multiplication table</h2>
+    <table class="demo">
+        <thead>
+            <tr>
+                <th>x</th>
+                <?php for ($i = 0; $i <= 10; $i++) {
+                    echo '<th>' . $i . '</th>';
+                } ?>
+
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            for ($e = 0; $e <= 10; $e++) {
+                echo '<tr>';
+                echo '<th>' . $e . '</th>';
+
+                for ($i = 0; $i <= 10; $i++) {
+                    if ($e === $i)  echo '<td class="diag"> ' . ($e * $i) . ' </td>';
+                    else echo '<td> ' . ($e * $i) . ' </td>';
+                }
+
+                echo '</tr>';
+            }
+
+            ?>
+        </tbody>
+    </table>
 </body>
 
 </html>
