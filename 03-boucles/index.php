@@ -84,7 +84,7 @@
     <table class="demo">
         <thead>
             <tr>
-                <th>x</th>
+                <th>X</th>
                 <?php for ($i = 0; $i <= 10; $i++) {
                     echo '<th>' . $i . '</th>';
                 } ?>
