@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Boucles PHP</title>
 </head>
 
@@ -53,7 +54,7 @@
         ?>
     </ul>
 
-    <h2>carre</h2>
+    <h2>carre/triangle</h2>
     <?php
     for ($e = 0; $e <= 10; $e++) {
         echo '<p>';
@@ -63,6 +64,18 @@
         echo '</p>';
     }
     ?>
+    <div class="flex evenly">
+        <?php
+        for ($e = 1; $e <= 10; $e++) {
+            echo '<div>';
+            for ($i = 1; $i <= 10; $i++) {
+                echo '<p> ' . $e . ' x ' . $i . ' = ' . ($e * $i) . ' </p>';
+            }
+            echo '</div>';
+        }
+
+        ?>
+    </div>
 </body>
 
 </html>
