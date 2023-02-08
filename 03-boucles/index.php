@@ -100,10 +100,9 @@
 
                 for ($i = 0; $i <= 10; $i++) {
                     if ($e === $i)  echo '<td class="diag"> ' . ($e * $i) . ' </td>';
-                    else if ($i % 2 === 0) echo '<td class="paire"> ' . ($e * $i) . ' </td>';
+                    else if (($i + $e) % 2 === 0) echo '<td class="couleur"> ' . ($e * $i) . ' </td>';
                     else echo '<td> ' . ($e * $i) . ' </td>';
                 }
-
                 echo '</tr>';
             }
 
