@@ -132,7 +132,10 @@
     ];
     $sum = 0;
     foreach ($population as $pays => $pop) {
-        $sum += $pop;
+        if ($pays != 'Mexique') {
+
+            $sum += $pop;
+        }
     ?>
         <ul>
             <?= $pop > 20000000 ? '<li>' . $pays . '</li>' : '' ?>
