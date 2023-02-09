@@ -107,6 +107,17 @@
         </p>
     <?php } ?>
     <h2>Nous avons <?= count($users); ?> utilisateurs.</h2>
+
+    <?php
+    $capitales = [
+        'France' => 'Paris',
+        'Espagne' => 'Madrid',
+        'Italie' => 'Rome',
+    ];
+    foreach ($capitales as $index => $capital) { ?>
+        <p>La capital de <?= $index ?> est <?= $capital ?></p>
+    <?php } ?>
+
 </body>
 
 </html>
