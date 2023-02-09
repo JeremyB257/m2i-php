@@ -28,8 +28,14 @@
         <p>tu as <?= $age ?> ans</p>
     <?php } ?>
 
-    <a href="index.php?name=fiorella&age=3">Fiorella</a>
-    <a href="index.php?name=toto">Toto</a>
+    <a href="index.php?name=Fiorella&age=3">Fiorella</a>
+    <a href="index.php?name=Toto">Toto</a>
+
+    <form method="get" action="">
+        <input type="text" name="name" placeholder="Nom" value='<?= $name ?>'>
+        <input type="text" name="age" placeholder="Age" value='<?= $age ?>'>
+        <input type="submit" value="Envoyer">
+    </form>
 </body>
 
 </html>
