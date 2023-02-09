@@ -9,6 +9,21 @@
 </head>
 
 <body>
+    <?php
+    function hello($name, $age = null) {
+        $output = 'Bonjour ' . $name;
+        $age ? $output .= ', tu as ' . $age . ' ans.' : '';
+
+        return  $output;
+    }
+
+    function addition(int $n1, int $n2): int {
+        return $n1 + $n2;
+    }
+
+    ?>
+    <h1><?= hello('Fiorella', 3) ?></h1>
+    <h2><?= strtoUpper(hello('Toto')) ?></h2>
 
 </body>
 
