@@ -160,7 +160,16 @@
             'notes' => [1, 14, 6, 2, 1, 8, 9]
         ]
     ];
-    ?>
+
+    foreach ($eleves as $eleve) {
+        echo '<p>' . $eleve['nom'] . ' à eu ';
+        foreach ($eleve['notes'] as $index => $note) {
+
+
+            echo $index < count($eleve['notes']) - 1 ? $note . ' ' : 'et ' . $note;
+        }
+        echo '</p>';
+    } ?>
 </body>
 
 </html>
