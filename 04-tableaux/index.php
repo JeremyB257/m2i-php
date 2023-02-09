@@ -118,6 +118,28 @@
         <p>La capital de <?= $index ?> est <?= $capital ?></p>
     <?php } ?>
 
+
+
+    <?php
+    $population = [
+        'France' => 67595000,
+        'Suede' => 9998000,
+        'Suisse' => 8417000,
+        'Kosovo' => 1820631,
+        'Malte' => 434403,
+        'Mexique' => 122273500,
+        'Allemagne' => 82800000,
+    ];
+    $sum = 0;
+    foreach ($population as $pays => $pop) {
+        $sum += $pop;
+    ?>
+        <ul>
+            <?= $pop > 20000000 ? '<li>' . $pays . '</li>' : '' ?>
+        </ul>
+    <?php } ?>
+    <h3>Population total europeen : <?= $sum ?> </h3>
+
 </body>
 
 </html>
