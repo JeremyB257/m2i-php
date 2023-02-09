@@ -9,7 +9,27 @@
 </head>
 
 <body>
+    <h2>Les superGlobales</h2>
 
+
+
+    <?php
+    var_dump($_GET);
+    // php 5
+    $name = isset($_GET['name']) ? $_GET['name'] : 'John Doe';
+    // php 7
+    $name = $_GET['name'] ?? 'John Doe';
+    $age = $_GET['age'] ?? null;
+    ?>
+
+    <h2>Bonjour <?= $name ?></h2>
+
+    <?php if ($age) { ?>
+        <p>tu as <?= $age ?> ans</p>
+    <?php } ?>
+
+    <a href="index.php?name=fiorella&age=3">Fiorella</a>
+    <a href="index.php?name=toto">Toto</a>
 </body>
 
 </html>
