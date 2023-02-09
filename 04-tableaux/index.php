@@ -170,6 +170,8 @@
         }
         echo '</p>';
     } ?>
+
+    <h3>La moyenne de jean est de : <?= round(array_sum($eleves[2]['notes']) / count($eleves[2]['notes']), 2)  ?></h3>
 </body>
 
 </html>
