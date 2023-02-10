@@ -1,0 +1,24 @@
+.board {
+    background-color: #01551f;
+    border: 2px solid #652f04;
+    color: white;
+    font-family: 'Permanent Marker', cursive; 
+    padding: 20px;
+    min-height: 300px;
+    max-width: 800px;
+    position: relative;
+    margin: 0 auto;
+}
+p {
+    margin: 5px;
+}
+
+form {
+    margin: 10px 0;
+}
+img {
+    position: absolute;
+    width: 10%;
+    right: 10%;
+    bottom: 50px;
+}
