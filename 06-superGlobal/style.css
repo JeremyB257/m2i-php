@@ -11,6 +11,7 @@
 }
 p {
     margin: 5px;
+    font-size: 16px;
 }
 
 form {
@@ -19,6 +20,6 @@ form {
 img {
     position: absolute;
     width: 10%;
-    right: 10%;
-    bottom: 50px;
+    left: 50%;
+    bottom: -50px;
 }
