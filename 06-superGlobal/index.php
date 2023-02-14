@@ -19,12 +19,14 @@
     <?php
     var_dump($_GET);
     // php 5
-    $name = isset($_GET['name']) ? $_GET['name'] : 'John Doe';
+    //   $name = isset($_GET['name']) ? $_GET['name'] : 'John Doe';
     // php 7
     $name = htmlspecialchars($_GET['name']) ?? 'John Doe';
     $age = htmlspecialchars($_GET['age']) ?? null;
     $uppercase = (bool) ($_GET['uppercase'] ?? false);
     $originalName = $name;
+    $selectedHouse = $_GET['house'] ?? null;
+
     if ($uppercase) {
         $name = strtoupper($name);
     }
@@ -45,7 +47,7 @@
     <form method="get" action="">
         <div>
             <label for="name">Nom</label>
-            <input type="text" name="name" id='name' placeholder="Nom" value=' <?= $originalName ?>'>
+            <input type="text" name="name" id='name' placeholder="Nom" value='<?= $originalName ?>'>
         </div>
 
         <div>
@@ -67,7 +69,7 @@
                 <?php $houses = ['Griffondor', 'Serdaigle', 'Pufsouffle', 'Serpentard']; ?>
                 <label>Maison sorcier</label>
                 <?php foreach ($houses as $house) { ?>
-                    <input type="radio" name="house" id="<?= $house; ?>" value="<?= $house; ?>">
+                    <input type="radio" name="house" id="<?= $house; ?>" value="<?= $house; ?>" <?= $house === $selectedHouse ? 'checked' : '' ?>>
                     <label for="<?= $house; ?>"><?= $house; ?></label>
                 <?php } ?>
             </div>
