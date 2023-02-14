@@ -8,6 +8,7 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -26,7 +27,7 @@
 
         // etape 4 - afficher un message de succes ou on affiche les erreurs
         if (empty($errors)) {
-            echo "<div class='alert alert-success' role='alert'> Merci, $email, vous etes bien inscrit !</div>";
+            echo "<div class='alert alert-success' role='alert'><i class='fa-sharp fa-solid fa-badge-check'></i> Merci, $email, vous etes bien inscrit !</div>";
         }
     }
 
