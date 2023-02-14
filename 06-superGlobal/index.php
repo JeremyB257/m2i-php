@@ -25,7 +25,7 @@
     $age = $_GET['age'] ?? null;
     ?>
 
-    <h2>Bonjour <?= $name ?></h2>
+    <h2>Bonjour <?= ucfirst($name) ?></h2>
 
     <?php if ($age) { ?>
         <p>tu as <?= $age ?> ans</p>
