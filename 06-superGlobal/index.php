@@ -29,6 +29,8 @@
         $name = strtoupper($name);
     }
     var_dump($uppercase)
+
+
     ?>
 
     <h2>Bonjour <?= ucfirst($name) ?></h2>
@@ -41,12 +43,42 @@
     <a href="index.php?name=Toto">Toto</a>
 
     <form method="get" action="">
-        <input type="text" name="name" placeholder="Nom" value='<?= $originalName ?>'>
-        <input type="text" name="age" placeholder="Age" value='<?= $age ?>'>
+        <div>
+            <label for="name">Nom</label>
+            <input type="text" name="name" id='name' placeholder="Nom" value=' <?= $originalName ?>'>
+        </div>
+
+        <div>
+            <label for="age">Age</label>
+            <select name="age" id="age">
+                <?php for ($i = 13; $i < 100; $i++) {
+                    echo "<option value='$i'>$i ans</option>";
+                } ?>
+            </select>
+            <!-- <input type="text" name="age" id="age" placeholder="Age" value='<?= $age ?>'> -->
+        </div>
+
         <input type="checkbox" name="uppercase" id="uppercase" <?= $uppercase ? 'checked' : '' ?>>
         <label for="uppercase">Majuscule</label>
-        <input type="submit" value="Envoyer">
+        <div>
+
+
+            <div>
+                <?php $houses = ['Griffondor', 'Serdaigle', 'Pufsouffle', 'Serpentard']; ?>
+                <label>Maison sorcier</label>
+                <?php foreach ($houses as $house) { ?>
+                    <input type="radio" name="house" id="<?= $house; ?>" value="<?= $house; ?>">
+                    <label for="<?= $house; ?>"><?= $house; ?></label>
+                <?php } ?>
+            </div>
+            <input type="submit" value="Envoyer">
+        </div>
     </form>
+
+
+
+
+
 
     <?php
     $repeat = $_GET['repeat'] ?? 10;
