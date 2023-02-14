@@ -19,26 +19,42 @@
     $password = $_POST['password'] ?? null;
     $errors = [];
 
-    //etape 3 -  verifier le formulaire
-    if (!empty($_POST)) {
-        if (empty($email)) {
-            $errors[] = 'L\'email est obligatoire.';
-        }
 
-        // etape 4 - afficher un message de succes ou on affiche les erreurs
-        if (empty($errors)) {
-            echo "<div class='alert alert-success' role='alert'><i class='fa-sharp fa-solid fa-badge-check'></i> Merci, $email, vous etes bien inscrit !</div>";
-        }
-    }
 
     ?>
     <div class="max-w-lg mx-auto p-4">
         <h2 class="text-center my-4 text-3xl">formulaire d'inscription</h2>
+        <?php
+        //etape 3 -  verifier le formulaire
+        if (!empty($_POST)) {
 
+            if (empty($email)) {
+                $errors[] = 'L\'email est obligatoire.';
+            } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $errors[] = 'L\'email est invalide';
+            }
+
+            if (mb_strlen($password) < 8) {
+                $errors[] = 'Le password doit faire 8 caracteres minimum';
+            }
+
+            // etape 4 - afficher un message de succes ou on affiche les erreurs
+            if (empty($errors)) {
+                // todo envoie du formulaire a la BDD
+                echo "<div class='alert alert-success' role='alert'><i class='fa-sharp fa-solid fa-badge-check'></i> Merci, $email, vous etes bien inscrit !</div>";
+            } else {
+                echo "<div class='alert alert-danger' role='alert'>";
+                foreach ($errors as $error) {
+                    echo "<p><i class='fa-solid fa-triangle-exclamation'></i> $error</p>";
+                }
+                echo "</div>";
+            }
+        }
+        ?>
         <form action="" method="post">
             <div class="mb-3">
                 <label for="email" class="block">Email</label>
-                <input class="mt-1 rounded-lg w-full" type="text" name="email" id="email">
+                <input class="mt-1 rounded-lg w-full" type="text" name="email" id="email" value="<?= $email ?>">
             </div>
             <div>
                 <label for="password" class="block">Password</label>
