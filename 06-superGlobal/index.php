@@ -111,7 +111,7 @@
     <h2>Bitcoin converter</h2>
 
     <?php
-    $amount = $_POST['amount'] ?? null;
+    $amount = (float) ($_POST['amount'] ?? null);
     $currency = $_POST['currency'] ?? 'euro';
 
     if (!empty($_POST)) {
