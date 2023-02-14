@@ -134,7 +134,7 @@
     <form action="" method="post">
         <div>
             <label for="amount">Montant</label>
-            <input type="text" name="amount" id="amount">
+            <input type="text" name="amount" id="amount" value="<?= $amount ?>">
         </div>
         <div>
             <label>Devise</label>
