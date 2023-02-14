@@ -29,13 +29,13 @@
         if (!empty($_POST)) {
 
             if (empty($email)) {
-                $errors[] = 'L\'email est obligatoire.';
+                $errors['email'] = 'L\'email est obligatoire.';
             } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $errors[] = 'L\'email est invalide';
+                $errors['email'] = 'L\'email est invalide';
             }
 
             if (mb_strlen($password) < 8) {
-                $errors[] = 'Le password doit faire 8 caracteres minimum';
+                $errors['password'] = 'Le password doit faire 8 caracteres minimum';
             }
 
             // etape 4 - afficher un message de succes ou on affiche les erreurs
@@ -59,6 +59,12 @@
             <div>
                 <label for="password" class="block">Password</label>
                 <input class="mt-1 rounded-lg w-full" type="password" name="password" id="password">
+                <?php
+                if (isset($errors['password'])) { ?>
+                    <div class='alert alert-danger mt-2' role='alert'>
+                        <p><i class='fa-solid fa-triangle-exclamation'></i> <?= $errors['password'] ?></p>
+                    </div>
+                <?php } ?>
             </div>
             <?php
 
