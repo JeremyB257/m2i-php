@@ -114,6 +114,11 @@
     $amount = $_POST['amount'] ?? null;
 
     if (!empty($_POST)) {
+        $rate = 20300;
+        $decimals = $amount / $rate <= 1 ? 4 : 2;
+        $result = number_format($amount / $rate, $decimals, ',', ' ');
+
+        echo "<h3>$amount euros valents $result bitcoins</h3>";
     }
     ?>
 
