@@ -102,6 +102,29 @@
             <p><?= $text[$rand] ?></p>
         <?php } ?>
     </div>
+
+
+
+
+
+
+    <h2>Bitcoin converter</h2>
+
+    <?php
+    $amount = $_POST['amount'] ?? null;
+
+    if (!empty($_POST)) {
+    }
+    ?>
+
+    <form action="" method="post">
+        <div>
+            <label for="amount">Montant</label>
+            <input type="text" name="amount" id="amount">
+        </div>
+        <button>Convertir</button>
+    </form>
+
 </body>
 
 </html>
