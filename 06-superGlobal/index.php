@@ -112,13 +112,22 @@
 
     <?php
     $amount = $_POST['amount'] ?? null;
+    $currency = $_POST['currency'] ?? 'euro';
 
     if (!empty($_POST)) {
         $rate = 20300;
-        $decimals = $amount / $rate <= 1 ? 4 : 2;
-        $result = number_format($amount / $rate, $decimals, ',', ' ');
 
-        echo "<h3>$amount euros valents $result bitcoins</h3>";
+        if ($currency == 'euro') {
+            $decimals = $amount / $rate <= 1 ? 4 : 2;
+            $result = number_format($amount / $rate, $decimals, ',', ' ');
+
+            echo "<h3>$amount euros valents $result bitcoins</h3>";
+        } else {
+
+            $result = number_format($amount * $rate, 2, ',', ' ');
+
+            echo "<h3>$amount bitcoin valents $result euros</h3>";
+        }
     }
     ?>
 
@@ -126,6 +135,13 @@
         <div>
             <label for="amount">Montant</label>
             <input type="text" name="amount" id="amount">
+        </div>
+        <div>
+            <label>Devise</label>
+            <input type="radio" name="currency" id="currency-euro" value="euro" <?= $currency === 'euro' ? 'checked' : '' ?>>
+            <label for="currency-euro">Euro</label>
+            <input type="radio" name="currency" id="currency-btc" value="btc" <?= $currency === 'btc' ? 'checked' : '' ?>>
+            <label for="currency-btc">Bitcoin</label>
         </div>
         <button>Convertir</button>
     </form>
