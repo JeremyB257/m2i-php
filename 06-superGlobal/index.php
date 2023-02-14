@@ -21,8 +21,14 @@
     // php 5
     $name = isset($_GET['name']) ? $_GET['name'] : 'John Doe';
     // php 7
-    $name = $_GET['name'] ?? 'John Doe';
-    $age = $_GET['age'] ?? null;
+    $name = htmlspecialchars($_GET['name']) ?? 'John Doe';
+    $age = htmlspecialchars($_GET['age']) ?? null;
+    $uppercase = (bool) ($_GET['uppercase'] ?? false);
+    $originalName = $name;
+    if ($uppercase) {
+        $name = strtoupper($name);
+    }
+    var_dump($uppercase)
     ?>
 
     <h2>Bonjour <?= ucfirst($name) ?></h2>
@@ -35,8 +41,10 @@
     <a href="index.php?name=Toto">Toto</a>
 
     <form method="get" action="">
-        <input type="text" name="name" placeholder="Nom" value='<?= $name ?>'>
+        <input type="text" name="name" placeholder="Nom" value='<?= $originalName ?>'>
         <input type="text" name="age" placeholder="Age" value='<?= $age ?>'>
+        <input type="checkbox" name="uppercase" id="uppercase" <?= $uppercase ? 'checked' : '' ?>>
+        <label for="uppercase">Majuscule</label>
         <input type="submit" value="Envoyer">
     </form>
 
