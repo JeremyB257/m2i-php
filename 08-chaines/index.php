@@ -24,4 +24,10 @@ if (stripos($sentence, 'fai') !== false) {
 
 //remplacer une chaine dans une chaine
 
-echo str_replace('boxydev', 'gmail', $email);
+echo str_replace('boxydev', 'gmail', $email) . '</br>';
+
+echo $email[8] . '</br>';
+
+foreach ((array) $email as $letter) {
+    echo $letter;
+}
