@@ -63,3 +63,33 @@ $message = htmlspecialchars($message);
 $message = strip_tags($message, ['strong', 'em']);
 
 echo $message;
+
+$acro = $_POST['acro'] ?? '';
+$acro = htmlspecialchars($acro);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <label for="acro">Acronyme</label>
+        <input type="text" id="acro" name="acro">
+        <button>Envoyer</button>
+        <?php if (!empty($_POST)) {
+            $acros = explode(' ', $acro);
+            foreach ($acros as $acrony) {
+                echo strtoupper(substr($acrony, 0, 1));
+            }
+        } ?>
+    </form>
+</body>
+
+</html>
