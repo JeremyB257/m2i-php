@@ -31,3 +31,11 @@ echo $email[8] . '</br>';
 foreach ((array) $email as $letter) {
     echo $letter;
 }
+
+// Extraire une chaine d'une chaine
+
+echo '</br>' . substr($email, 0, 8) . '</br>'; // fiorella
+
+echo substr($email, 9, -4) . '</br>'; // cloud.boxydev
+
+echo substr($email, -3); // com
