@@ -38,4 +38,28 @@ echo '</br>' . substr($email, 0, 8) . '</br>'; // fiorella
 
 echo substr($email, 9, -4) . '</br>'; // cloud.boxydev
 
-echo substr($email, -3); // com
+echo substr($email, -3) . '</br>'; // com
+$countriesString = 'italie,portugal,france';
+$countries = explode(',', $countriesString);
+var_dump($countries);
+
+echo '<ul>';
+echo '<li>' . implode('</li><li>', $countries) . '</li>'; //<li>itali</li><li>portugale</li>...
+echo '</ul>';
+
+//quelques fonctions pour les formulaires
+$password = 'azerty123';
+var_dump($password);
+var_dump(trim($password));
+
+// pour se proteger d'une faille XSS
+$message = $_GET['message'] ?? '';
+
+//desactiver l'interpretation
+
+$message = htmlspecialchars($message);
+
+// autoriser certaine balise
+$message = strip_tags($message, ['strong', 'em']);
+
+echo $message;
