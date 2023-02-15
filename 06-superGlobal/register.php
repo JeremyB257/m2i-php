@@ -58,7 +58,7 @@
             </div>
             <div>
                 <label for="password" class="block">Password</label>
-                <input class="mt-1 rounded-lg w-full" type="password" name="password" id="password">
+                <input class="mt-1 rounded-lg w-full <?= isset($errors['password']) ? 'border border-danger' : "" ?>" type="password" name="password" id="password">
                 <?php
                 if (isset($errors['password'])) { ?>
                     <div class='alert alert-danger mt-2' role='alert'>
