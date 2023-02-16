@@ -3,7 +3,7 @@ $title = 'Contact';
 require __DIR__ . '\partials\header.php';
 
 ?>
-<main class="container-lg">
+<main class="container-lg pt-3 mt-5">
 
     <h1 class="text-center mt-2">Nous contacter</h1>
     <form class="row g-3" method="post">

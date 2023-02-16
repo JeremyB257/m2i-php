@@ -8,7 +8,7 @@ $videoId = $_GET['id'] ?? '';
 $color  = $_GET['color'] ?? '';
 
 ?>
-<main class="container-lg">
+<main class="container-lg pt-3 mt-5">
     <form action="videos.php" class="mt-2">
         <button class="btn btn-primary">Retour vers les videos</button>
     </form>

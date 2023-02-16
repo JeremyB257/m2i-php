@@ -7,7 +7,7 @@ $btns = [
     '4' => 'DnGdoEa1tPg',
 ]
 ?>
-<main class="container-lg">
+<main class="container-lg pt-3 mt-5">
     <h1 class="text-center">videos</h1>
     <form action="video.php" class="mb-4 text-center">
         <div>

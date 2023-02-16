@@ -18,7 +18,7 @@ $title = $title ?? 'Gameshop'
 
 <body class="d-flex flex-column h-100">
     <header class="text-center">
-        <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-lg">
                 <a class="navbar-brand" href="#">Gameshop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,10 +31,10 @@ $title = $title ?? 'Gameshop'
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= pageName() ===  "contact" ? 'active' : '' ?>" href="contact.php">contact</a>
+                            <a class="nav-link <?= pageName() ===  "contact" ? 'active' : '' ?>" href="contact.php">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= pageName() ===  "videos" ? 'active' : '' ?>" href="videos.php">videos</a>
+                            <a class="nav-link <?= pageName() ===  "videos" ? 'active' : '' ?>" href="videos.php">Videos</a>
                         </li>
                     </ul>
                 </div>
