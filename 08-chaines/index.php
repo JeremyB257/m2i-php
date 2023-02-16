@@ -63,9 +63,32 @@ $message = htmlspecialchars($message);
 $message = strip_tags($message, ['strong', 'em']);
 
 echo $message;
+?>
 
+<?php
 $acro = $_POST['acro'] ?? '';
 $acro = htmlspecialchars($acro);
+
+$verb = $_POST['verb'] ?? 'chercher';
+$verb =  htmlspecialchars($verb);
+
+function conjugaison($verb) {
+    $verb = substr($verb, 0, -2);
+    $endings = [
+        'Je' => 'e',
+        'Tu' => 'es',
+        'Il' => 'e',
+        'Nous' => 'ons',
+        'Vous' => 'ez',
+        'Ils' => 'ent'
+    ];
+    $array = [];
+
+    foreach ($endings as $index => $end) {
+        $array[] = $index . ' ' . $verb . $end;
+    }
+    return $array;
+}
 ?>
 
 <!DOCTYPE html>
@@ -90,6 +113,18 @@ $acro = htmlspecialchars($acro);
             }
         } ?>
     </form>
+    <form action="" method="post">
+        <label for="verb">Verbe</label>
+        <input type="text" id="verb" name="verb">
+        <button>Envoyer</button>
+    </form>
+    <ul>
+        <?php if (!empty($_POST)) {
+            foreach (conjugaison($verb) as $text) {
+                echo "<li>$text</li>";
+            };
+        } ?>
+    </ul>
 </body>
 
 </html>
