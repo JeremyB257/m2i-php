@@ -72,7 +72,7 @@ $acro = htmlspecialchars($acro);
 $verb = $_POST['verb'] ?? 'chercher';
 $verb =  htmlspecialchars($verb);
 
-function conjugaison($verb) {
+function conjugaison(string $verb): array {
     $verb = substr($verb, 0, -2);
     $endings = [
         'Je' => 'e',
@@ -120,9 +120,7 @@ function conjugaison($verb) {
     </form>
     <ul>
         <?php if (!empty($_POST)) {
-            foreach (conjugaison($verb) as $text) {
-                echo "<li>$text</li>";
-            };
+            echo '<li>' . implode('</li><li>', conjugaison($verb)) . '</li>';
         } ?>
     </ul>
 </body>
