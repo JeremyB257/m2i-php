@@ -4,8 +4,8 @@ require __DIR__ . '\partials\header.php';
 if (!$_GET['id']) {
     header("Location: 404.php");
 }
-$videoId = $_GET['id'] ?? '';
-$color  = $_GET['color'] ?? '';
+$videoId = (htmlspecialchars($_GET['id'])) ?? '';
+$color  = (htmlspecialchars($_GET['color']))  ?? '';
 
 ?>
 <main class="container-lg pt-3 mt-5">

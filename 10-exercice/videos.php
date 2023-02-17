@@ -2,7 +2,7 @@
 require __DIR__ . '\partials\header.php';
 $btns = [
     '1' => 'KFKMEiuCY6M',
-    '2' => 'ki6q1xKGdkg',
+    '2' => 'srsWDT1B1ZI',
     '3' => 'jEbWGG30ACQ',
     '4' => 'DnGdoEa1tPg',
 ]
