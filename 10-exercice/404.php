@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '\partials\header.php';
-
+http_response_code(404)
 ?>
 <main class="container-lg pt-3 mt-5">
     <h1>404</h1>
