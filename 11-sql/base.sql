@@ -8,7 +8,7 @@ INSERT INTO user (username, email, password) VALUES
 ('tata', 'tata@gmail.com', 'password');
 
 -- on Peut mettre a jour une ou plusieur ligne (tuples)
-UPDATE user SET 'password' = 'daddy' WHERE id = 1;
+UPDATE user SET `password` = 'daddy' WHERE id = 1;
 
 -- selectionner tous les utilisateur avec tous les champs
 SELECT * FROM `user`;
