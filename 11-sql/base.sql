@@ -11,7 +11,10 @@ INSERT INTO user (username, email, password) VALUES
 UPDATE user SET `password` = 'daddy' WHERE id = 1;
 
 -- selectionner tous les utilisateur avec tous les champs
-SELECT * FROM `user`;
+SELECT * FROM user;
 
 -- selectionner tous les utilisateur avec le username et l'email
 SELECT * FROM `user` WHERE username, email;
+
+-- Supprimer une ligne dans la BDD
+DELETE FROM user WHERE id = 2;
