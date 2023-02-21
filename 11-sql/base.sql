@@ -34,4 +34,9 @@ SELECT * FROM movie WHERE released_at >= '1980-01-01' AND  released_at <= '1989-
 -- on veut trier les films par duréee (sans WHERE)
 SELECT * FROM movie ORDER BY duration DESC;
 
+-- on veut trier les films d'avant 2000 par durée (avec where)
+SELECT * FROM movie WHERE released_at < '2000-01-01' ORDER BY duration DESC;
 
+--on veut afficher 4 films aleatoire
+
+SELECT * FROM movie ORDER BY rand() LIMIT 4
