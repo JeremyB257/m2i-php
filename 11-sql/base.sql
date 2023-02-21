@@ -67,3 +67,10 @@ SELECT * FROM movie AS m
 INNER JOIN movie_has_actor AS mha ON m.id_movie = mha.id_actor
 INNER JOIN actor AS a ON a.id_actor = mha.id_actor
 WHERE m.title = 'Le parrain';
+
+-- Afficher les acteur qui ont jouée dans la categorie action
+SELECT DISTINCT a.id_actor,a.name,a.firstname, c.name FROM actor AS a
+INNER JOIN movie_has_actor AS mha ON m.id_actor = mha.id_actor
+INNER JOIN movie AS m ON m.id_movie = mha.id_movie
+INNER JOIN category AS c ON c.id_category = mha.id_category
+WHERE c.name = 'Action';
