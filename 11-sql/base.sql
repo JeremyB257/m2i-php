@@ -38,5 +38,9 @@ SELECT * FROM movie ORDER BY duration DESC;
 -- on veut trier les films d'avant 2000 par durée (avec where)
 SELECT * FROM movie WHERE released_at < '2000-01-01' ORDER BY duration DESC;
 
---on veut afficher 4 films aleatoire
-SELECT * FROM movie ORDER BY rand() LIMIT 4
+-- on veut afficher 4 films aleatoire
+SELECT * FROM movie ORDER BY rand() LIMIT 4;
+
+-- Faire une pagination en mySQL
+SELECT * FROM movie LIMIT 0, 5; --OFFSET 0 LIMIT 5 / page 1
+SELECT * FROM movie LIMIT 5, 5; --OFFSET 5 LIMIT 5 / page 2
