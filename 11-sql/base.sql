@@ -44,3 +44,15 @@ SELECT * FROM movie ORDER BY rand() LIMIT 4;
 -- Faire une pagination en mySQL
 SELECT * FROM movie LIMIT 0, 5; --OFFSET 0 LIMIT 5 / page 1
 SELECT * FROM movie LIMIT 5, 5; --OFFSET 5 LIMIT 5 / page 2
+
+
+-- exo 
+-- SELECT * FROM movie;
+-- SELECT * FROM movie WHERE id_category = 1;
+-- SELECT * FROM movie WHERE id_category = 1 AND released_at < '1990-01-01';
+-- SELECT * FROM movie ORDER BY released_at DESC;
+-- SELECT * FROM movie ORDER BY rand();
+-- SELECT * FROM movie LIMIT 4, 5;
+-- SELECT * FROM movie ORDER BY released_at DESC LIMIT 1;
+-- SELECT * FROM movie ORDER BY released_at ASC LIMIT 1;
+-- SELECT * FROM actor WHERE birthday < '1960-01-01';
