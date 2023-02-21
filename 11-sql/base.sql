@@ -25,6 +25,7 @@ SELECT * FROM movie;
 -- WHERE permet de filtrer et condiotionner
 -- On veux les fils qui durent plus de 3h
 SELECT * FROM movie WHERE duration >= 180;
+
 -- On veut les film d'action
 SELECT * FROM movie WHERE id_category = 2 AND duration >60;
 
@@ -38,5 +39,4 @@ SELECT * FROM movie ORDER BY duration DESC;
 SELECT * FROM movie WHERE released_at < '2000-01-01' ORDER BY duration DESC;
 
 --on veut afficher 4 films aleatoire
-
 SELECT * FROM movie ORDER BY rand() LIMIT 4
