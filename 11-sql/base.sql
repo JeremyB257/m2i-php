@@ -56,3 +56,14 @@ SELECT * FROM movie LIMIT 5, 5; --OFFSET 5 LIMIT 5 / page 2
 -- SELECT * FROM movie ORDER BY released_at DESC LIMIT 1;
 -- SELECT * FROM movie ORDER BY released_at ASC LIMIT 1;
 -- SELECT * FROM actor WHERE birthday < '1960-01-01';
+
+
+-- jointure
+SELECT * FROM movie m
+INNER JOIN category c ON m.id_category = c.id_category;
+
+-- jointure
+SELECT * FROM movie AS m
+INNER JOIN movie_has_actor AS mha ON m.id_movie = mha.id_actor
+INNER JOIN actor AS a ON a.id_actor = mha.id_actor
+WHERE m.title = 'Le parrain';
