@@ -20,10 +20,18 @@ SELECT * FROM `user` WHERE username, email;
 DELETE FROM user WHERE id = 2;
 
 -- Le SELECT permet de récupérer les données dans une table
-SELECT * FROM movies;
+SELECT * FROM movie;
 
 -- WHERE permet de filtrer et condiotionner
 -- On veux les fils qui durent plus de 3h
-SELECT * FROM movies WHERE duration >= 180;
+SELECT * FROM movie WHERE duration >= 180;
 -- On veut les film d'action
-SELECT * FROM movies WHERE id_category = 2 AND duration >60
+SELECT * FROM movie WHERE id_category = 2 AND duration >60;
+
+-- on veut les film des année 80
+SELECT * FROM movie WHERE released_at >= '1980-01-01' AND  released_at <= '1989-12-31';
+
+-- on veut trier les films par duréee (sans WHERE)
+SELECT * FROM movie ORDER BY duration DESC;
+
+
