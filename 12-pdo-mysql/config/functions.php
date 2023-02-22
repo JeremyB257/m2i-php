@@ -1,6 +1,6 @@
 <?php
 
-function truncate($text, $limit = 10) {
+function truncate($text, $limit = 15) {
     if (mb_strlen($text) > $limit) {
         return substr($text, 0, $limit) . '...';
     }

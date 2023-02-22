@@ -19,9 +19,9 @@ $movies = $query->fetchAll();
             <div class="card m-2" style="max-width: 12rem;">
                 <img src="uploads/<?= $movie['cover'] ?>" class="card-img-top object-fit-cover" alt="affiche" style="height: 80%;">
                 <div class="card-body">
-                    <h5 class="card-title"><?= truncate($movie['title'], 9) ?></h5>
-                    <p class="card-text"><?= format_date($movie['released_at']) ?></p>
-                    <p class="card-text"><?= $movie['description'] ?></p>
+                    <h5 class="card-title mb-0"><?= truncate($movie['title']) ?></h5>
+                    <p class="card-text text-secondary"><?= format_date($movie['released_at']) ?></p>
+                    <a href="#" class="btn btn-outline-success text-center d-block">Voir</a>
                 </div>
             </div>
         <?php } ?>
