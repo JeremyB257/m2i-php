@@ -7,3 +7,10 @@ define('DB_PASSWORD', '');
 
 // connexion a la db
 $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
+
+//on range la connexion à la BDD dans une fonction
+function db() {
+    global $db; //permet l'acces a la variable $db
+
+    return $db;
+}
