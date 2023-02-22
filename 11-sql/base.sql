@@ -90,3 +90,18 @@ WHERE c.name = 'Action';
 --SELECT v.ville_nom, d.departement_nom FROM `villes_france_free` AS v 
 --INNER JOIN departement AS d ON v.ville_departement = d.departement_code
 --ORDER BY v.ville_population_2012 DESC LIMIT 10;
+
+
+-- Obtenir la liste du nom de chaque département, associé à son code et du nombre de commune au sein de ces département, en triant afin d’obtenir en priorité les départements qui possèdent le plus de communes
+
+-- Obtenir la liste des 10 plus grands départements, en terme de superficie
+
+-- Compter le nombre de villes dont le nom commence par “Saint”
+
+-- Obtenir la liste des villes qui ont un nom existants plusieurs fois, et trier afin d’obtenir en premier celles dont le nom est le plus souvent utilisé par plusieurs communes
+
+-- Obtenir en une seule requête SQL la liste des villes dont la superficie est supérieur à la superficie moyenne
+
+-- Obtenir la liste des départements qui possèdent plus de 2 millions d’habitants
+
+-- Remplacez les tirets par un espace vide, pour toutes les villes commençant par “SAINT-” (dans la colonne qui contient les noms en majuscule)
