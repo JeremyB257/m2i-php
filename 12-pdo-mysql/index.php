@@ -21,7 +21,7 @@ $movies = $query->fetchAll();
                 <div class="card-body">
                     <h5 class="card-title mb-0"><?= truncate($movie['title']) ?></h5>
                     <p class="card-text text-secondary"><?= format_date($movie['released_at']) ?></p>
-                    <a href="#" class="btn btn-outline-success text-center d-block">Voir</a>
+                    <a href="film.php?id=<?= $movie['id_movie'] ?>" class="btn btn-outline-success text-center d-block">Voir</a>
                 </div>
             </div>
         <?php } ?>
