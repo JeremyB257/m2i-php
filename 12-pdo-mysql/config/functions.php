@@ -6,3 +6,7 @@ function truncate($text, $limit = 10) {
     }
     return $text;
 }
+
+function format_date($date, $format = 'd/m/Y') {
+    return date($format, strtotime($date));
+}
