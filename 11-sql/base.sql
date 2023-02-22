@@ -70,7 +70,23 @@ WHERE m.title = 'Le parrain';
 
 -- Afficher les acteur qui ont jouée dans la categorie action
 SELECT DISTINCT a.id_actor,a.name,a.firstname, c.name FROM actor AS a
-INNER JOIN movie_has_actor AS mha ON m.id_actor = mha.id_actor
+INNER JOIN movie_has_actor AS mha ON a.id_actor = mha.id_actor
 INNER JOIN movie AS m ON m.id_movie = mha.id_movie
-INNER JOIN category AS c ON c.id_category = mha.id_category
+INNER JOIN category AS c ON c.id_category = m.id_category
 WHERE c.name = 'Action';
+
+-- exo
+
+-- Obtenir la liste des 10 villes les plus peuplées en 2012
+-- SELECT * FROM `villes_france_free` ORDER BY ville_population_2012 DESC LIMIT 10;
+
+-- Obtenir la liste des 50 villes ayant la plus faible superficie
+-- SELECT * FROM `villes_france_free` ORDER BY ville_surface ASC LIMIT 50;
+
+-- Obtenir la liste des départements d’outres-mer, c’est-à-dire ceux dont le numéro de département commencent par “97”
+-- SELECT * FROM `villes_france_free` WHERE ville_departement LIKE '97%';
+
+-- Obtenir le nom des 10 villes les plus peuplées en 2012, ainsi que le nom du département associé
+--SELECT v.ville_nom, d.departement_nom FROM `villes_france_free` AS v 
+--INNER JOIN departement AS d ON v.ville_departement = d.departement_code
+--ORDER BY v.ville_population_2012 DESC LIMIT 10;
