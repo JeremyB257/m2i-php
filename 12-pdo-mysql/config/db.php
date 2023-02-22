@@ -14,7 +14,7 @@ try {
 } catch (Exception $exception) {
     echo '<p>' . $exception->getMessage() . '</p>';
     echo '<a href="https://www.google.com/search?q=' . $exception->getMessage() . '" target="_blank">Go Google</a><br/>';
-    echo '<img src="https://media.tenor.com/DdR3TtZSaBcAAAAd/waiting-wait-cd-dojo.gif" width="100" />';
+    echo '<img src="https://media.tenor.com/92fv6uBxxNQAAAAd/john-travolta.gif" width="200" />';
     die(); // on arrete le code car la BDD ne fonction pas
 }
 
