@@ -9,7 +9,6 @@ http_response_code(404)
     <form action="index.php">
         <button class="btn btn-outline-success">Retour vers les films</button>
     </form>
-
 </main>
 
 <?php
