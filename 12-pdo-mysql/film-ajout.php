@@ -69,6 +69,10 @@ if (!empty($_POST)) {
                 <p><?= $error ?></p>
             <?php } ?>
         </div>
+    <?php } else if (empty($errors) && !empty($_POST)) { ?>
+        <div class="alert alert-success" role="alert">
+            <p>Le film est ajouté !</p>
+        </div>
     <?php } ?>
     <form class="row g-3" action="" method="post">
         <div class="col-md-6">
