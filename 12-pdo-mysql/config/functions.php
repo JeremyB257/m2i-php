@@ -28,3 +28,7 @@ function selectAll($sql, $exec = []) {
     $query->execute($exec);
     return $query->fetchAll();
 }
+
+function sanitize($value) {
+    return trim(htmlspecialchars(($value)));
+}

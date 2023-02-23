@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '\partials\header.php';
 ?>
-<h1>Webflix</h1>
+
 
 <?php
 
@@ -13,7 +13,8 @@ $movies = $query->fetchAll();
 
 ?>
 
-<div class="container-lg">
+<div class="container-lg mt-3 d-flex flex-column align-items-center">
+    <a class="btn btn-outline-success" href="film-ajout.php">Ajouter un film</a>
     <div class="d-flex flex-wrap justify-content-center">
         <?php foreach ($movies as $movie) { ?>
             <div class="card m-2" style="max-width: 12rem;">
