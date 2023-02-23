@@ -30,5 +30,5 @@ function selectAll($sql, $exec = []) {
 }
 
 function sanitize($value) {
-    return trim(htmlspecialchars(($value)));
+    return trim(htmlspecialchars(($value ?? '')));
 }

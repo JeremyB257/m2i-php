@@ -5,11 +5,11 @@ require __DIR__ . '\partials\header.php';
 $categories = selectAll('SELECT * from category');
 
 //recupere les valeurs du formulaire
-$title = sanitize($_POST['title']) ?? null;
-$released_at = sanitize($_POST['released_at']) ?? null;
-$description = sanitize($_POST['description']) ?? null;
-$duration = sanitize($_POST['duration']) ?? null;
-$category = sanitize($_POST['category']) ?? null;
+$title = sanitize($_POST['title'] ?? null);
+$released_at = sanitize($_POST['released_at'] ?? null);
+$description = sanitize($_POST['description'] ?? null);
+$duration = sanitize($_POST['duration'] ?? null);
+$category = sanitize($_POST['category'] ?? null);
 
 $errors = [];
 
