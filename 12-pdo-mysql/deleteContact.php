@@ -9,11 +9,9 @@ $id = sanitize($_GET['id'] ?? null);
 if (is_int($id)) {
     $query = db()->prepare('DELETE FROM contacts WHERE id = :id');
     $query->execute(['id' => $id]);
-    header("Location: contact.php");
-} else {
-    header("Location: contact.php");
 }
 
+header("Location: contact.php");
 
 
 
