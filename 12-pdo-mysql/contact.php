@@ -6,7 +6,7 @@ $name = sanitize($_POST['name'] ?? null);
 $message = sanitize($_POST['message'] ?? null);
 
 $errors = [];
-
+$messBdd = selectAll('SELECT * FROM contacts');
 // verifier et traiter le formulaire
 if (!empty($_POST)) {
     if (strlen($name) === 0) {
@@ -15,7 +15,9 @@ if (!empty($_POST)) {
     if (mb_strlen($message) < 15) {
         $errors['message'] = 'Le message doit comporter 15 caracteres.';
     }
-
+    if (count($messBdd) >= 5) {
+        $errors['bdd'] = 'La limite de 5 messages est atteinte';
+    }
 
     if (empty($errors)) {
         // On fait la requete SQL pour inserer le film
@@ -28,7 +30,6 @@ if (!empty($_POST)) {
 }
 
 
-$messBdd = selectAll('SELECT * FROM contacts');
 
 ?>
 <div class="container-lg mt-3">
@@ -58,10 +59,12 @@ $messBdd = selectAll('SELECT * FROM contacts');
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
     <?php foreach ($messBdd as $mess) { ?>
+
         <div class="card m-2">
             <div class="card-body">
                 <h5 class="card-title"><?= $mess['name'] ?></h5>
                 <p class="card-text"><?= $mess['message'] ?></p>
+                <a href="deleteContact.php?id=<?= $mess['id'] ?>" class="card-link">Supprimer</a>
             </div>
         </div>
     <?php } ?>
