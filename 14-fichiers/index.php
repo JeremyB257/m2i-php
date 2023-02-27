@@ -16,6 +16,13 @@
     // fwrite($file, "Salut\nCa va ?\n");
     fclose($file);
 
+    // ecrire dans le fichier avec un formulaire
+    if (!empty($_POST)) {
+        $message = $_POST['message'];
+        $date = date('Y-m-d H:i:s');
+        file_put_contents('log.txt', "[$date] $message \n", FILE_APPEND);
+    }
+
     //Lire le fichier en lecture seul
     $file = fopen('log.txt', 'r');
     $content = fread($file, filesize('log.txt'));
