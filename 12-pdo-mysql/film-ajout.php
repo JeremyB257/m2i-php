@@ -10,6 +10,7 @@ $released_at = sanitize($_POST['released_at'] ?? null);
 $description = sanitize($_POST['description'] ?? null);
 $duration = sanitize($_POST['duration'] ?? null);
 $category = sanitize($_POST['category'] ?? null);
+$cover = $_FILES['cover'] ?? null;
 
 $errors = [];
 
@@ -44,6 +45,15 @@ if (!empty($_POST)) {
 
     //traitement du formulaire s'il n'y a pas d'erreur
     if (empty($errors)) {
+        //upload de l'image
+        $file = $cover['tmp_name']; // emplacement temporaire
+        $filename = $cover['name']; // Nom du fichier
+        $extension = substr(strrchr($filename, '.'), 1); // jpg
+        $filename = strtolower(str_replace(' ', '-', $title)) . '-' . uniqid() . '-' . '.' . $extension; // die-hard.jpg
+
+        move_uploaded_file($file, __DIR__ . '/uploads/' . $filename);
+
+
         // On fait la requete SQL pour inserer le film
         $query = db()->prepare('INSERT INTO movie (title, released_at, description, duration, cover, id_category) VALUES (:title, :released_at, :description, :duration, :cover, :category)');
         $query->execute([
@@ -51,7 +61,7 @@ if (!empty($_POST)) {
             'released_at' => $released_at,
             'description' => $description,
             'duration' => $duration,
-            'cover' => null,
+            'cover' => $filename,
             'category' => $category,
         ]);
     }
@@ -74,7 +84,7 @@ if (!empty($_POST)) {
             <p>Le film est ajouté !</p>
         </div>
     <?php } ?>
-    <form class="row g-3" action="" method="post">
+    <form class="row g-3" action="" method="post" enctype="multipart/form-data">
         <div class="col-md-6">
             <label for="title" class="form-label">Titre</label>
             <input type="text" name="title" class="form-control" id="title" placeholder="Matrix 1" value="<?= $title ?>">
@@ -91,7 +101,10 @@ if (!empty($_POST)) {
             <label for="duration" class="form-label">Durée</label>
             <input type="text" name="duration" class="form-control" id="duration" placeholder="150" value="<?= $duration ?>">
         </div>
-        <!-- todo upload de l'image -->
+        <div class="mb-3">
+            <label for="cover" class="form-label">Image</label>
+            <input class="form-control" name="cover" type="file" id="cover">
+        </div>
 
         <div class="col-md-4">
             <label for="category" class="form-label">Catégorie</label>
