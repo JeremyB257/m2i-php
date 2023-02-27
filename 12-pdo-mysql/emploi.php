@@ -20,7 +20,7 @@ if (!empty($_POST)) {
         $errors['cvFiles'] = 'Le fichier n\'est pas un pdf';
     }
     if ($cvFile['size'] > 5 * 1024 * 1024) {
-        $errors['cvFiles'] = 'Le fichier est trop volumineux';
+        $errors['cvFiles'] = 'Le fichier est trop volumineux (5mo)';
     }
 
     if (empty($errors)) {
@@ -31,7 +31,7 @@ if (!empty($_POST)) {
         $filename = md5($name . uniqid()) . $extension; // nomhasher.jpg
 
         if (!file_exists(__DIR__ . '/cv/')) {
-            mkdir(__DIR__ . '/cv/', 0777, true);
+            mkdir(__DIR__ . '/cv/');
         }
         move_uploaded_file($filePath, __DIR__ . '/cv/' . $filename);
 
