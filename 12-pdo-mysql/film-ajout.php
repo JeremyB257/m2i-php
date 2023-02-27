@@ -37,6 +37,13 @@ if (!empty($_POST)) {
         $errors['duration'] = 'La durée doit etre entre 1 et 999 minutes.';
     }
 
+    //Verifier le type du fichier uploadé
+    $mime = !empty($cover['tmp_name']) ? mime_content_type($cover['tmp_name']) : '';
+    $mimeTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+
+    if (!in_array($mime, $mimeTypes)) {
+        $errors['covers'] = 'Le fichier n\'est pas une image';
+    }
     //Verifie l'existence d'une categorie avec une requete
     $exists = select('SELECT COUNT(id_category) FROM category WHERE id_category = :category', ['category' => $category]);
     if (!$exists['COUNT(id_category)']) {
