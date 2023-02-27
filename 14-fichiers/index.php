@@ -13,7 +13,7 @@
     // ouvrir un fichier en lecture + ecriture
     $file = fopen('log.txt', 'a+');
     //Ecrire dans un fichier
-    fwrite($file, "Salut\nCa va ?\n");
+    // fwrite($file, "Salut\nCa va ?\n");
     fclose($file);
 
     //Lire le fichier en lecture seul
@@ -26,7 +26,11 @@
     $lines = array_filter(explode("\n", $content));
 
     ?>
-    <h2>le ficghier à été modifié le <?= date('d/m/Y à H:i:s', filemtime('log.txt')) ?></h2>
+    <form action="" method="post">
+        <input type="text" name="message" placeholder="message">
+        <input type="submit" value="Envoyer">
+    </form>
+    <h2>le fichier à été modifié le <?= date('d/m/Y à H:i:s', filemtime('log.txt')) ?></h2>
     <ul>
         <?php foreach ($lines as $line) { ?>
             <li><?= $line ?></li>
