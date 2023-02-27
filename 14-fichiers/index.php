@@ -25,7 +25,9 @@
 
     //Lire le fichier en lecture seul
     $file = fopen('log.txt', 'r');
-    $content = fread($file, filesize('log.txt'));
+    if (filesize('log.txt') > 0) {
+        $content = fread($file, filesize('log.txt'));
+    }
     fclose($file);
     // racourci
     $content = file_get_contents('log.txt');
