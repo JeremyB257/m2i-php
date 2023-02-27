@@ -19,18 +19,21 @@ if (!empty($_POST)) {
     if ($mime !== 'application/pdf') {
         $errors['cvFiles'] = 'Le fichier n\'est pas un pdf';
     }
-    var_dump($cvFile);
-    if ($cvFile['size'] > 500000) {
+    if ($cvFile['size'] > 5 * 1024 * 1024) {
         $errors['cvFiles'] = 'Le fichier est trop volumineux';
     }
 
     if (empty($errors)) {
-        $filePath = $cvFiles['tmp_name']; // emplacement temporaire
-        $filename = $cvFiles['name']; // Nom du fichier
-        $extension = strrchr($filename, '.'); // .pdf
-        $filename =  $extension; // .pdf
 
-        move_uploaded_file($filePath, __DIR__ . '/uploads/' . $filename);
+        $filePath = $cvFile['tmp_name']; // emplacement temporaire
+        $filename = $cvFile['name']; // Nom du fichier
+        $extension = strrchr($filename, '.'); // .pdf
+        $filename = md5($name . uniqid()) . $extension; // nomhasher.jpg
+
+        if (!file_exists(__DIR__ . '/cv/')) {
+            mkdir(__DIR__ . '/cv/', 0777, true);
+        }
+        move_uploaded_file($filePath, __DIR__ . '/cv/' . $filename);
 
         // @todo send request
     }
@@ -52,7 +55,7 @@ if (!empty($_POST)) {
     <form action="" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="name" class="form-label">Nom</label>
-            <input type="email" class="form-control" name="name" id="name" placeholder="jean dupont">
+            <input type="text" class="form-control" name="name" id="name" placeholder="jean dupont">
         </div>
         <div class="mb-3">
             <label for="cvFile" class="form-label">CV :</label>
