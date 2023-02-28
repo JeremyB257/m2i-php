@@ -24,10 +24,13 @@ if (!empty($_POST)) {
     }
 
     if (empty($errors)) {
+
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+
         $query = db()->prepare('INSERT INTO user (login, password) VALUES (:login, :password)');
         $query->execute([
             'login' => $login,
-            'password' => $password,
+            'password' => $hash,
         ]);
     }
 }
