@@ -13,7 +13,7 @@ if (!empty($_POST)) {
     // verifier si ca match
     $bddUser = select('SELECT * FROM user WHERE login = :login', ['login' => $login]);
 
-    if ($password === $bddUser['password']) {
+    if (password_verify($password, $bddUser['password'])) {
 
         $_SESSION['user'] = $login;
         header('Location: connecte.php');
