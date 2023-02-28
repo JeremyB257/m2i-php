@@ -9,12 +9,22 @@ $remember = $_POST['remember'] ?? false;
 
 $errors = [];
 
-var_dump($remember);
+
 if (!empty($_POST)) {
     // verifier si ca match
     $bddUser = select('SELECT * FROM user WHERE login = :login', ['login' => $login]);
 
+
     if ($bddUser) {
+        if ($remember) {
+            // Générer un hash avec le pseudo
+            $hashCookie = password_hash($login, PASSWORD_DEFAULT);
+            // Stocker le pseudo et le hash dans un fichier
+            file_put_contents('tokens.txt', $login . ':' . $hashCookie . "\n", FILE_APPEND);
+            // Stocker le hash dans le cookie
+            setcookie('remember', $hashCookie, time() + 60 * 60 * 24 * 365);
+        }
+
         if (password_verify($password, $bddUser['password'])) {
             $_SESSION['user'] = $login;
             header('Location: connecte.php');
