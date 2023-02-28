@@ -5,18 +5,20 @@ require __DIR__ . '/partials/header.php';
 
 $login = $_POST['login'] ?? null;
 $password = $_POST['password'] ?? null;
+$remember = $_POST['remember'] ?? false;
 
 $errors = [];
 
+var_dump($remember);
 if (!empty($_POST)) {
-
     // verifier si ca match
     $bddUser = select('SELECT * FROM user WHERE login = :login', ['login' => $login]);
 
-    if (password_verify($password, $bddUser['password'])) {
-
-        $_SESSION['user'] = $login;
-        header('Location: connecte.php');
+    if ($bddUser) {
+        if (password_verify($password, $bddUser['password'])) {
+            $_SESSION['user'] = $login;
+            header('Location: connecte.php');
+        }
     } else {
         $errors['login'] = 'Erreur de login';
     }
@@ -47,7 +49,7 @@ if (!empty($_POST)) {
                     <div class="form-group d-md-flex">
                         <div class="w-50 text-left">
                             <label class="checkbox-wrap checkbox-primary mb-0">Se souvenir de moi
-                                <input type="checkbox" name="remember" checked>
+                                <input type="checkbox" name="remember">
                             </label>
                         </div>
                     </div>
