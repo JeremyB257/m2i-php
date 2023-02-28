@@ -11,7 +11,9 @@ $errors = [];
 if (!empty($_POST)) {
 
     // verifier si ca match
-    if ($password === 'admin') {
+    $bddUser = select('SELECT * FROM user WHERE login = :login', ['login' => $login]);
+
+    if ($password === $bddUser['password']) {
 
         $_SESSION['user'] = $login;
         header('Location: connecte.php');
@@ -23,7 +25,7 @@ if (!empty($_POST)) {
 <div class="container-lg ">
     <div class="row h100 justify-content-center align-content-center">
         <div class="col-md-7 col-lg-5">
-            <div class="login-wrap p-4 p-md-5">
+            <div class="shadow-lg p-4 p-md-5">
                 <h3 class="mb-4">Connexion</h3>
                 <?php foreach ($errors as $error) { ?>
                     <div class="alert alert-danger" role="alert">
@@ -54,7 +56,7 @@ if (!empty($_POST)) {
                     </div>
                 </form>
                 <p class="text-center mt-2">Pas encore inscris ?
-                    <a href="/signup">Inscription</a>
+                    <a href="signup.php">Inscription</a>
                 </p>
             </div>
         </div>
