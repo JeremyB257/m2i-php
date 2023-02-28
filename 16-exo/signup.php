@@ -53,7 +53,7 @@ if (!empty($_POST)) {
                 <form action="#" class="signin-form" method="post">
                     <div class="form-group mt-3">
                         <label class="form-label" for="login">Login</label>
-                        <input type="text" class="form-control" name="login" id="login" required>
+                        <input type="text" class="form-control" name="login" id="login" required value=<?= $login ?>>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="password">Mot de passe</label>
