@@ -13,6 +13,11 @@
 
 <body>
     <?php
+    $prices = [
+        'article 1' => 5,
+        'article 2' => 7,
+        'article 3' => 8,
+    ];
     $email = $_POST['email'] ?? null;
     $products = $_POST['products'] ?? null;
 
@@ -31,24 +36,15 @@
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
             </div>
-            <div class="form-check">
-                <input class="form-check-input" name="products[]" type="checkbox" value="article 1" id="check1">
-                <label class="form-check-label" for="check1">
-                    Article 1
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="products[]" type="checkbox" value="article 2" id="check2">
-                <label class="form-check-label" for="check2">
-                    Article 2
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="products[]" type="checkbox" value=" article 3" id="check3">
-                <label class="form-check-label" for="check3">
-                    Article 3
-                </label>
-            </div>
+            <?php foreach ($prices as $name => $price) { ?>
+                <div class="form-check">
+                    <input class="form-check-input" name="products[]" type="checkbox" value="<?= $name ?>" id="<?= $name ?>">
+                    <label class="form-check-label" for="<?= $name ?>">
+                        <?= "$name($price)" ?>
+                    </label>
+                </div>
+            <?php } ?>
+
             <input class="btn btn-outline-success mt-2" type="submit" value="Envoyer">
         </form>
     </div>
