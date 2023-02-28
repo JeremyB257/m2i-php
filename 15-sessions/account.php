@@ -6,6 +6,9 @@ if (isset($_COOKIE['remember'])) {
     touch('tokens.txt');
     $tokens = array_filter(explode("\n", file_get_contents('tokens.txt')));
 
+    foreach ($tokens as $token) {
+        $token = explode(':', $token, 2);
+    }
     $_SESSION['nickname'] = $_COOKIE['remember'];
 }
 // On va chercher la personne connecter
