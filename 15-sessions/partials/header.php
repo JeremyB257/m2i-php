@@ -1,6 +1,5 @@
 <?php
-require __DIR__ . '/../config/db.php';
-require __DIR__ . '/../config/functions.php';
+
 $title = $title ?? 'Session'
 ?>
 <!DOCTYPE html>
