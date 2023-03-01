@@ -17,10 +17,10 @@ function format_duration($duration) {
 }
 
 
-function select($query, $exec = []) {
-    $quer = db()->prepare($query);
-    $quer->execute($exec);
-    return $quer->fetch();
+function select($sql, $exec = []) {
+    $query = db()->prepare($sql);
+    $query->execute($exec);
+    return $query->fetch();
 }
 
 function selectAll($sql, $exec = []) {
