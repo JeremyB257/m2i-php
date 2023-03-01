@@ -1,8 +1,17 @@
 <?php
 
 session_start();
+require __DIR__ . '/partials/header.php';
 
+if (isset($_COOKIE['remember'])) {
+    $user = select('SELECT * FROM user WHERE token = :token', ['token' => $_COOKIE['remember']]);
+}
 
+if ($user) {
+    $_SESSION['user'] = $user['login'];
+} else {
+    header('Location: index.php');
+}
 
 // On va chercher la personne connectée
 $currentUser = $_SESSION['user'] ?? null;

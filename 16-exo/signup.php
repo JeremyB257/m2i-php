@@ -27,10 +27,11 @@ if (!empty($_POST)) {
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
-        $query = db()->prepare('INSERT INTO user (login, password) VALUES (:login, :password)');
+        $query = db()->prepare('INSERT INTO user (login, password, token) VALUES (:login, :password, :token)');
         $query->execute([
             'login' => $login,
             'password' => $hash,
+            'token' => bin2hex(random_bytes(16))
         ]);
     }
 }

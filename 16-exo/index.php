@@ -3,9 +3,9 @@
 session_start();
 require __DIR__ . '/partials/header.php';
 
-$login = $_POST['login'] ?? null;
-$password = $_POST['password'] ?? null;
-$remember = $_POST['remember'] ?? false;
+$login = sanitize($_POST['login'] ?? null);
+$password = sanitize($_POST['password'] ?? null);
+$remember = sanitize($_POST['remember'] ?? false);
 
 $errors = [];
 
@@ -15,20 +15,14 @@ if (!empty($_POST)) {
     $bddUser = select('SELECT * FROM user WHERE login = :login', ['login' => $login]);
 
 
-    if ($bddUser) {
-        if ($remember) {
-            // Générer un hash avec le pseudo
-            $hashCookie = password_hash($login, PASSWORD_DEFAULT);
-            // Stocker le pseudo et le hash dans un fichier
-            file_put_contents('tokens.txt', $login . ':' . $hashCookie . "\n", FILE_APPEND);
-            // Stocker le hash dans le cookie
-            setcookie('remember', $hashCookie, time() + 60 * 60 * 24 * 365);
-        }
 
-        if (password_verify($password, $bddUser['password'])) {
-            $_SESSION['user'] = $login;
-            header('Location: connecte.php');
+
+    if ($bddUser && password_verify($password, $bddUser['password'])) {
+        $_SESSION['user'] = $login;
+        if ($remember) {
+            setcookie('remember', $bddUser['token'], time() + 60 * 60 * 24 * 365);
         }
+        header('Location: connecte.php');
     } else {
         $errors['login'] = 'Erreur de login';
     }
