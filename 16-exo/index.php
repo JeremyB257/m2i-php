@@ -9,12 +9,9 @@ $remember = sanitize($_POST['remember'] ?? false);
 
 $errors = [];
 
-
 if (!empty($_POST)) {
     // verifier si ca match
     $bddUser = select('SELECT * FROM user WHERE login = :login', ['login' => $login]);
-
-
 
 
     if ($bddUser && password_verify($password, $bddUser['password'])) {
@@ -22,9 +19,9 @@ if (!empty($_POST)) {
         if ($remember) {
             setcookie('remember', $bddUser['token'], time() + 60 * 60 * 24 * 365);
         }
-        header('Location: connecte.php');
+        header('Location: profil.php');
     } else {
-        $errors['login'] = 'Erreur de login';
+        $errors['login'] = 'Erreur de login/password';
     }
 }
 ?>
