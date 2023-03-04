@@ -3,7 +3,7 @@
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'exo');
 define('DB_USER', 'root');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'toor');
 
 // connexion a la db
 try {
@@ -19,7 +19,8 @@ try {
 }
 
 //on range la connexion à la BDD dans une fonction
-function db() {
+function db()
+{
     global $db; //permet l'acces a la variable $db
 
     return $db;
