@@ -374,3 +374,16 @@ JOIN rating ra ON m.mov_id = ra.mov_id
 JOIN reviewer re ON ra.rev_id = re.rev_id
 WHERE re.rev_name != 'Paul Monks' OR re.rev_name is NULL
 
+
+
+--From the following table, write a SQL query to find the movies with the lowest ratings. Return reviewer name, movie title, and number of stars for those movies.
+
+SELECT reviewer.rev_name, movie.mov_title, rating.rev_stars
+FROM reviewer, movie, rating
+WHERE rating.rev_stars = (
+SELECT MIN(rating.rev_stars)
+FROM rating
+)
+AND rating.rev_id = reviewer.rev_id
+AND rating.mov_id = movie.mov_id;
+
