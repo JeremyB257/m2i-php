@@ -286,3 +286,12 @@ WHERE mov_id IN (
 )
 ORDER BY mov_year
 
+
+--From the following table, write a SQL query to search for movies that do not have any ratings. Return movie title.
+
+SELECT mov_title
+FROM movie
+WHERE mov_id NOT IN(
+    SELECT mov_id
+    FROM rating
+)
