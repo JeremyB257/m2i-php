@@ -234,3 +234,9 @@ JOIN movie_direction md ON d.dir_id = md.dir_id
 JOIN movie m ON md.mov_id = m.mov_id
 WHERE m.mov_title = 'Eyes Wide Shut'
 
+--From the following table, write a SQL query to find those movies that have been released in countries other than the United Kingdom. Return movie title, movie year, movie time, and date of release, releasing country.
+
+SELECT mov_title, mov_year, mov_time, mov_dt_rel, mov_rel_country
+FROM movie
+WHERE mov_rel_country != 'UK'
+
