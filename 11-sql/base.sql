@@ -316,3 +316,12 @@ AND ra.rev_stars IS NOT NULL
 AND re.rev_name IS NOT NULL
 ORDER BY re.rev_name, m.mov_title, ra.rev_stars
 
+-- From the following table, write a SQL query to find movies that have been reviewed by a reviewer and received a rating. Group the result set on reviewer’s name, movie title. Return reviewer’s name, movie title.
+
+SELECT rev_name, mov_title 
+FROM reviewer, movie, rating, rating r2
+WHERE rating.mov_id=movie.mov_id 
+AND reviewer.rev_id=rating.rev_ID 
+AND rating.rev_id = r2.rev_id 
+GROUP BY rev_name, mov_title HAVING count(*) > 1;
+
