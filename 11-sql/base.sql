@@ -213,3 +213,24 @@ JOIN movie_cast AS mc ON a.act_id = mc.act_id
 JOIN movie AS m ON mc.mov_id = m.mov_id
 WHERE m.mov_title = 'Annie Hall'
 
+--From the following tables, write a SQL query to find the director of a film that cast a role in 'Eyes Wide Shut'. Return director first name, last name.
+--with SubQuery
+SELECT dir_fname, dir_lname
+FROM director
+WHERE dir_id IN(
+    SELECT dir_id
+    FROM movie_direction
+    WHERE mov_id IN(
+        SELECT mov_id
+        FROM movie
+        WHERE mov_title = 'Eyes Wide Shut'
+    )
+)
+
+--with join
+SELECT d.dir_fname, d.dir_lname
+FROM director d
+JOIN movie_direction md ON d.dir_id = md.dir_id
+JOIN movie m ON md.mov_id = m.mov_id
+WHERE m.mov_title = 'Eyes Wide Shut'
+
