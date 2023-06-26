@@ -325,3 +325,12 @@ AND reviewer.rev_id=rating.rev_ID
 AND rating.rev_id = r2.rev_id 
 GROUP BY rev_name, mov_title HAVING count(*) > 1;
 
+-- From the following tables, write a SQL query to find those movies, which have received highest number of stars. Group the result set on movie title and sorts the result-set in ascending order by movie title. Return movie title and maximum number of review stars.
+
+SELECT mov_title, MAX(rev_stars)
+FROM movie, rating 
+WHERE movie.mov_id=rating.mov_id 
+AND rating.rev_stars IS NOT NULL
+GROUP BY  mov_title
+ORDER BY mov_title;
+
