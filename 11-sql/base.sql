@@ -252,3 +252,26 @@ AND m.mov_id = ra.mov_id
 AND re.rev_id = ra.rev_id
 AND re.rev_name IS NULL
 
+--From the following tables, write a SQL query to find those movies directed by the director whose first name is Woddy and last name is Allen. Return movie title.
+--SubQuerry
+SELECT mov_title
+FROM movie
+WHERE mov_id IN (
+    SELECT mov_id 
+    FROM movie_direction
+    WHERE dir_id IN (
+        SELECT dir_id
+        FROM director
+        WHERE dir_fname = 'Woody' 
+        AND dir_lname = 'Allen'
+    )
+)
+
+--Join
+SELECT m.mov_title
+FROM movie m
+JOIN movie_direction md ON m.mov_id = md.mov_id
+JOIN director d ON md.dir_id = d.dir_id
+WHERE d.dir_fname = 'Woody' 
+AND d.dir_lname = 'Allen'
+
