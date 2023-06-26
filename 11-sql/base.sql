@@ -306,3 +306,13 @@ WHERE rev_id IN (
     WHERE rev_stars IS NULL
 )
 
+-- From the following tables, write a SQL query to find movies that have been reviewed by a reviewer and received a rating. Sort the result-set in ascending order by reviewer name, movie title, review Stars. Return reviewer name, movie title, review Stars.
+
+SELECT re.rev_name, m.mov_title, ra.rev_stars
+FROM reviewer re, movie m ,rating ra
+WHERE re.rev_id = ra.rev_id
+AND ra.mov_id = m.mov_id
+AND ra.rev_stars IS NOT NULL
+AND re.rev_name IS NOT NULL
+ORDER BY re.rev_name, m.mov_title, ra.rev_stars
+
