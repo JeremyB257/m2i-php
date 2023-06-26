@@ -154,3 +154,10 @@ SELECT nom, COUNT(*) AS NbrProduct
 FROM commande_ligne
 GROUP BY nom
 HAVING NbrProduct > 1
+
+--Obtenir la liste de tous les produits qui sont présent sur plusieurs commandes et y ajouter une colonne qui liste les identifiants des commandes associées.
+SELECT nom, COUNT(*) AS nbr_items , GROUP_CONCAT(`commande_id`) AS liste_commandes
+FROM `commande_ligne` 
+GROUP BY nom 
+HAVING nbr_items > 1
+ORDER BY nbr_items DESC
