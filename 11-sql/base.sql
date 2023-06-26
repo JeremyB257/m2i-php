@@ -148,3 +148,9 @@ SELECT *
 FROM client
 WHERE prenom = 'muriel'
 AND password = SHA1('test11')
+
+--Obtenir la liste de tous les produits qui sont présent sur plusieurs commandes.
+SELECT nom, COUNT(*) AS NbrProduct
+FROM commande_ligne
+GROUP BY nom
+HAVING NbrProduct > 1
