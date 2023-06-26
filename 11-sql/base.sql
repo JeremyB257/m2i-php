@@ -59,17 +59,20 @@ SELECT * FROM movie LIMIT 5, 5; --OFFSET 5 LIMIT 5 / page 2
 
 
 -- jointure
-SELECT * FROM movie m
+SELECT * 
+FROM movie m
 INNER JOIN category c ON m.id_category = c.id_category;
 
 -- jointure
-SELECT * FROM movie AS m
+SELECT * 
+FROM movie AS m
 INNER JOIN movie_has_actor AS mha ON m.id_movie = mha.id_actor
 INNER JOIN actor AS a ON a.id_actor = mha.id_actor
 WHERE m.title = 'Le parrain';
 
 -- Afficher les acteur qui ont jouée dans la categorie action
-SELECT DISTINCT a.id_actor,a.name,a.firstname, c.name FROM actor AS a
+SELECT DISTINCT a.id_actor,a.name,a.firstname, c.name 
+FROM actor AS a
 INNER JOIN movie_has_actor AS mha ON a.id_actor = mha.id_actor
 INNER JOIN movie AS m ON m.id_movie = mha.id_movie
 INNER JOIN category AS c ON c.id_category = m.id_category
@@ -87,9 +90,11 @@ WHERE c.name = 'Action';
 -- SELECT * FROM `departement` WHERE departement_code LIKE '97%';
 
 -- Obtenir le nom des 10 villes les plus peuplées en 2012, ainsi que le nom du département associé
---SELECT v.ville_nom, d.departement_nom FROM `villes_france_free` AS v 
+--SELECT v.ville_nom, d.departement_nom 
+--FROM `villes_france_free` AS v 
 --INNER JOIN departement AS d ON v.ville_departement = d.departement_code
---ORDER BY v.ville_population_2012 DESC LIMIT 10;
+--ORDER BY v.ville_population_2012 DESC
+--LIMIT 10;
 
 
 -- Obtenir la liste du nom de chaque département, associé à son code et du nombre de commune au sein de ces département, en triant afin d’obtenir en priorité les départements qui possèdent le plus de communes
