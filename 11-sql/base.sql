@@ -402,3 +402,19 @@ WHERE mov_id IN (
     )
 )
 
+--Write a query in SQL to find the movies in which one or more actors appeared in more than one film.
+SELECT mov_title
+FROM movie
+WHERE mov_id IN (
+    SELECT mov_id
+    FROM movie_cast
+    WHERE act_id IN (
+        SELECT act_id
+        FROM actor
+        WHERE act_id IN (
+            SELECT act_id
+            FROM movie_cast GROUP BY act_id
+            HAVING COUNT(act_id)>1
+        )
+    )
+)
