@@ -189,3 +189,27 @@ ORDER BY nbr_items DESC
 --Supprimer toutes les commandes (et les lignes des commandes) inférieur au 1er février 2019. Cela doit être effectué en 2 requêtes maximum
 
 
+
+
+
+-- From the following table, write a SQL query to find the actors who played a role in the movie 'Annie Hall'. Return all the fields of actor table.
+--With SubQuery
+SELECT * 
+FROM actor
+WHERE act_id IN(
+    SELECT act_id 
+    FROM movie_cast
+    WHERE mov_id IN (
+        SELECT mov_id
+        FROM movie
+        WHERE mov_title = 'Annie Hall'
+    )
+);
+
+--With Join
+SELECT a.act_id, a.act_fname, a.act_lname,a.act_gender
+FROM actor AS a
+JOIN movie_cast AS mc ON a.act_id = mc.act_id
+JOIN movie AS m ON mc.mov_id = m.mov_id
+WHERE m.mov_title = 'Annie Hall'
+
