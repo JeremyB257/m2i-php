@@ -354,3 +354,23 @@ JOIN rating ra ON re.rev_id = ra.rev_id
 JOIN movie m ON ra.mov_id = m.mov_id
 WHERE mov_title = 'American Beauty'
 
+--From the following table, write a SQL query to find the movies that have not been reviewed by any reviewer body other than 'Paul Monks'. Return movie title.
+--SubQuery
+SELECT mov_title
+FROM movie
+WHERE mov_id IN (
+    SELECT mov_id
+    FROM rating
+    WHERE rev_id NOT IN (
+        SELECT rev_id
+        FROM reviewer
+        WHERE rev_name = 'Paul Monks'
+    )
+)
+--Join
+SELECT m.mov_title
+FROM movie m
+JOIN rating ra ON m.mov_id = ra.mov_id
+JOIN reviewer re ON ra.rev_id = re.rev_id
+WHERE re.rev_name != 'Paul Monks' OR re.rev_name is NULL
+
