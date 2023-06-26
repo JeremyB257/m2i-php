@@ -126,7 +126,10 @@ ORDER BY nbt_item DESC
 -- Obtenir en une seule requête SQL la liste des villes dont la superficie est supérieur à la superficie moyenne
 SELECT * 
 FROM `villes_france_free` 
-WHERE `ville_surface` > (SELECT AVG(`ville_surface`) FROM `villes_france_free`)
+WHERE `ville_surface` > (
+    SELECT AVG(`ville_surface`) 
+    FROM `villes_france_free`
+)
 
 -- Obtenir la liste des départements qui possèdent plus de 2 millions d’habitants
 SELECT ville_departement, SUM(`ville_population_2012`) AS population_2012
