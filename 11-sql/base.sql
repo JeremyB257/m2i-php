@@ -295,3 +295,14 @@ WHERE mov_id NOT IN(
     SELECT mov_id
     FROM rating
 )
+
+-- From the following table, write a SQL query to find those reviewers who have not given a rating to certain films. Return reviewer name.
+
+SELECT rev_name 
+FROM reviewer 
+WHERE rev_id IN (
+    SELECT rev_id 
+    FROM rating 
+    WHERE rev_stars IS NULL
+)
+
