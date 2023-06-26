@@ -387,3 +387,18 @@ FROM rating
 AND rating.rev_id = reviewer.rev_id
 AND rating.mov_id = movie.mov_id;
 
+-- From the following tables, write a SQL query to find the movies directed by 'James Cameron'. Return movie title.
+
+SELECT mov_title
+FROM movie
+WHERE mov_id IN (
+    SELECT mov_id
+    FROM movie_direction
+    WHERE dir_id IN (
+        SELECT dir_id 
+        FROM director 
+        WHERE dir_fname = 'James'
+        AND dir_lname = 'Cameron'
+    )
+)
+
