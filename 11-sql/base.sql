@@ -334,3 +334,23 @@ AND rating.rev_stars IS NOT NULL
 GROUP BY  mov_title
 ORDER BY mov_title;
 
+--From the following tables, write a SQL query to find all reviewers who rated the movie 'American Beauty'. Return reviewer name.
+--SubQuery
+SELECT rev_name
+FROM reviewer
+WHERE rev_id IN (
+    SELECT rev_id 
+    FROM rating
+    WHERE mov_id IN (
+        SELECT mov_id
+        FROM movie
+        WHERE mov_title = 'American Beauty'
+    )
+)
+--Join
+SELECT re.rev_name
+FROM reviewer re
+JOIN rating ra ON re.rev_id = ra.rev_id
+JOIN movie m ON ra.mov_id = m.mov_id
+WHERE mov_title = 'American Beauty'
+
