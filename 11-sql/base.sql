@@ -275,3 +275,14 @@ JOIN director d ON md.dir_id = d.dir_id
 WHERE d.dir_fname = 'Woody' 
 AND d.dir_lname = 'Allen'
 
+-- From the following tables, write a SQL query to determine those years in which there was at least one movie that received a rating of at least three stars. Sort the result-set in ascending order by movie year. Return movie year.
+
+SELECT DISTINCT mov_year
+FROM movie
+WHERE mov_id IN (
+    SELECT mov_id
+    FROM rating
+    WHERE rev_stars > 3
+)
+ORDER BY mov_year
+
