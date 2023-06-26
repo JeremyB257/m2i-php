@@ -139,3 +139,12 @@ ORDER BY population_2012 DESC
 UPDATE `villes_france_free` 
 SET ville_nom = REPLACE(ville_nom, '-', ' ') 
 WHERE `ville_nom` LIKE 'SAINT-%'
+
+
+
+
+--Obtenir l’utilisateur ayant le prénom “Muriel” et le mot de passe “test11”, sachant que l’encodage du mot de passe est effectué avec l’algorithme Sha1.
+SELECT * 
+FROM client
+WHERE prenom = 'muriel'
+AND password = SHA1('test11')
