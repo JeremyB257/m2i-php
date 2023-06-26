@@ -240,3 +240,15 @@ SELECT mov_title, mov_year, mov_time, mov_dt_rel, mov_rel_country
 FROM movie
 WHERE mov_rel_country != 'UK'
 
+--From the following tables, write a SQL query to find for movies whose reviewer is unknown. Return movie title, year, release date, director first name, last name, actor first name, last name.
+
+SELECT m.mov_title, m.mov_year, m.mov_dt_rel, d.dir_fname ,d.dir_lname, a.act_fname, a.act_lname
+FROM movie m, actor a, director d, movie_direction md, movie_cast mc, reviewer re, rating ra
+WHERE  m.mov_id = md.mov_id
+AND md.dir_id = d.dir_id
+AND m.mov_id = mc.mov_id
+AND mc.act_id = a.act_id
+AND m.mov_id = ra.mov_id
+AND re.rev_id = ra.rev_id
+AND re.rev_name IS NULL
+
